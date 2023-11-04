@@ -51,14 +51,17 @@ dependencies:
   floor: ^1.4.2
 
   #make request to api
-  retrofit: ^3.0.1
+  retrofit: ^4.0.3
 
   #hooks
   flutter_hooks: ^0.18.3
 
   #chached image
   cached_network_image: ^3.2.0
-  dio: ^4.0.6
+  dio: ^5.3.3
+
+  #Router
+  go_router: ^12.1.0
 
 dev_dependencies:
   flutter_test:
@@ -75,8 +78,9 @@ dev_dependencies:
   # build_runner: ^2.1.2
 
   build_runner: ^2.4.6
-  retrofit_generator: ^4.2.0
+  retrofit_generator: ^8.0.3
   floor_generator: ^1.4.2
+  json_serializable: ^6.7.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
