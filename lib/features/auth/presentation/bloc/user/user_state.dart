@@ -4,7 +4,7 @@ import 'package:flutter_application_1/features/auth/domain/entities/user_entity.
 
 abstract class UserState extends Equatable {
   final List<UserEntity>? users;
-  final DioException? error;
+  final DioError? error;
 
   const UserState({this.users, this.error});
 
@@ -25,5 +25,5 @@ class GetUsersDone extends UserState {
 }
 
 class GetUsersError extends UserState {
-  const GetUsersError(DioException error) : super(error: error);
+  const GetUsersError(DioError error) : super(error: error);
 }

@@ -7,12 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class UserBloc extends Bloc<UserEvent, UserState> {
   final GetUsersUseCase _getUsersUseCase;
 
-  UserBloc(this._getUsersUseCase) : super(const GetUsersLoading()) {
+  UserBloc(this._getUsersUseCase) : super(const UserInitial()) {
     on<GetUsers>(onGetUsers);
   }
 
   Future<void> onGetUsers(GetUsers event, Emitter<UserState> emit) async {
-    final dataState = await _getUsersUseCase.call();
+    final dataState = await _getUsersUseCase();
     if (dataState is DataSuccess && dataState.data!.isNotEmpty) {
       emit(GetUsersDone(dataState.data!));
     }

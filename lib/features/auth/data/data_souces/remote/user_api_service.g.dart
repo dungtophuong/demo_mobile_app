@@ -9,7 +9,10 @@ part of 'user_api_service.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _UserApiService implements UserApiService {
-  _UserApiService(this._dio) {
+  _UserApiService(
+    this._dio, {
+    this.baseUrl,
+  }) {
     baseUrl ??= 'https://6545d3c5fe036a2fa954d795.mockapi.io';
   }
 
@@ -22,7 +25,7 @@ class _UserApiService implements UserApiService {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<HttpResponse<List<UserModel>>>(Options(
       method: 'GET',
@@ -35,11 +38,7 @@ class _UserApiService implements UserApiService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
         .map((dynamic i) => UserModel.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -58,22 +57,5 @@ class _UserApiService implements UserApiService {
       }
     }
     return requestOptions;
-  }
-
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
-    if (baseUrl == null || baseUrl.trim().isEmpty) {
-      return dioBaseUrl;
-    }
-
-    final url = Uri.parse(baseUrl);
-
-    if (url.isAbsolute) {
-      return url.toString();
-    }
-
-    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }

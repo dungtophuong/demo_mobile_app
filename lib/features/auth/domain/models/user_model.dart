@@ -23,10 +23,11 @@ class UserModel extends UserEntity {
         createdAt: entity.createdAt);
   }
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'avatar': avatar,
-        'createdAt': createdAt,
-        'name': name,
-      };
+  // Map<String, dynamic> toMap() => {
+  //       'id': id,
+  //       'avatar': avatar,
+  //       'createdAt': createdAt,
+  //       'name': name,
+  //     };
+  // String toJson() => JsonEncoder(toMap());
 }
