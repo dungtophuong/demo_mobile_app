@@ -24,5 +24,5 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<GetUsersUseCase>(GetUsersUseCase(sl()));
 
   // Blocs
-  sl.registerFactory<UserBloc>(() => UserBloc(sl()));
+  sl.registerFactory<UserBloc>(() => UserBloc(sl(), sl()));
 }

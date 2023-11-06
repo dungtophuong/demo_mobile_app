@@ -3,4 +3,5 @@ import 'package:flutter_application_1/features/auth/domain/entities/user_entity.
 
 abstract class UserRepository {
   Future<DataState<List<UserEntity>>> getUsers();
+  Future<DataState<UserEntity>> createUser();
 }

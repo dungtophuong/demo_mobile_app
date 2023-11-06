@@ -11,4 +11,7 @@ abstract class UserApiService {
 
   @GET('/users')
   Future<HttpResponse<List<UserModel>>> getUsers();
+
+  @POST('/users')
+  Future<HttpResponse<UserModel>> createUser();
 }

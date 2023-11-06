@@ -10,3 +10,7 @@ abstract class UserEvent extends Equatable {
 class GetUsers extends UserEvent {
   const GetUsers();
 }
+
+class CreateUser extends UserEvent {
+  const CreateUser();
+}
