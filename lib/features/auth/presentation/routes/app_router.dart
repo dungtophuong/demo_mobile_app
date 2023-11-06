@@ -6,7 +6,7 @@ import 'package:flutter_application_1/features/auth/presentation/screens/main/ac
 import 'package:flutter_application_1/features/auth/presentation/screens/main/home_screen.dart';
 import 'package:flutter_application_1/features/auth/presentation/screens/main/setting_screen.dart';
 import 'package:flutter_application_1/features/auth/presentation/screens/auth/login_screen.dart';
-import 'package:flutter_application_1/features/auth/presentation/screens/auth/signin_screen.dart';
+import 'package:flutter_application_1/features/auth/presentation/screens/auth/signup_screen.dart';
 import 'package:flutter_application_1/features/auth/presentation/screens/splash_screen.dart';
 
 enum RoutePath {
@@ -20,8 +20,6 @@ enum RoutePath {
   const RoutePath({required this.path});
   final String path;
 }
-
-
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -38,7 +36,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(
               path: RoutePath.signin.path,
               name: RoutePath.signin.name,
-              builder: (context, state) => const SigninScreen()),
+              builder: (context, state) => const SignUpScreen()),
           StatefulShellRoute.indexedStack(
               builder: (context, state, navigationShell) =>
                   ScaffoldWithNavBar(navigationShell: navigationShell),

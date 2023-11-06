@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/auth/presentation/routes/app_router.dart';
-import 'package:flutter_application_1/features/auth/presentation/screens/auth/signup_screen.dart';
-import 'package:flutter_application_1/features/auth/presentation/widgets/login_form.dart';
+import 'package:flutter_application_1/features/auth/presentation/bloc/user/user_bloc.dart';
+import 'package:flutter_application_1/features/auth/presentation/bloc/user/user_event.dart';
 import 'package:flutter_application_1/features/auth/presentation/widgets/my_button.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_application_1/features/auth/presentation/widgets/signup_form.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
   State<StatefulWidget> createState() {
-    return LoginScreenState();
+    return SignUpScreenState();
   }
 }
 
-class LoginScreenState extends State<LoginScreen> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
+class SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
-    void signUserIn() {}
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -47,7 +37,7 @@ class LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Sign in to your account',
+                  'Sign up for an account',
                   style: TextStyle(fontSize: 14),
                 ),
                 Baseline(
@@ -56,7 +46,7 @@ class LoginScreenState extends State<LoginScreen> {
                   child: TextButton(
                     onPressed: null,
                     child: Text(
-                      'Register account',
+                      'Already have an account?',
                       style: TextStyle(color: Colors.blue),
                     ),
                   ),
@@ -66,26 +56,9 @@ class LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 10,
             ),
-            SignInForm(),
+            SignUpForm(),
             SizedBox(
               height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Spacer(),
-                Baseline(
-                  baseline: 25,
-                  baselineType: TextBaseline.alphabetic,
-                  child: TextButton(
-                    onPressed: null,
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                  ),
-                ),
-              ],
             ),
             SizedBox(
               height: 30,
@@ -95,5 +68,9 @@ class LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void _buildFloatingActionButton(BuildContext context) {
+    BlocProvider.of<UserBloc>(context).add(const CreateUser());
   }
 }
