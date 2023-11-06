@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/config/services/injection_container.dart';
 import 'package:flutter_application_1/features/auth/presentation/bloc/user/user_event.dart';
-import 'package:flutter_application_1/features/auth/presentation/routes/app_router.dart';
+import 'package:flutter_application_1/config/routes/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'features/auth/presentation/bloc/user/user_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

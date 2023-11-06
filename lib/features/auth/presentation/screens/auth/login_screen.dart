@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/auth/presentation/routes/app_router.dart';
+import 'package:flutter_application_1/config/routes/app_router.dart';
 import 'package:flutter_application_1/features/auth/presentation/screens/auth/signup_screen.dart';
-import 'package:flutter_application_1/features/auth/presentation/widgets/login_form.dart';
-import 'package:flutter_application_1/features/auth/presentation/widgets/my_button.dart';
+import 'package:flutter_application_1/core/widgets/molecules/login_form.dart';
+import 'package:flutter_application_1/core/widgets/atoms/my_button.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {

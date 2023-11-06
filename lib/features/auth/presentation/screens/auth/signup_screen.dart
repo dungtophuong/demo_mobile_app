@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/auth/presentation/bloc/user/user_bloc.dart';
 import 'package:flutter_application_1/features/auth/presentation/bloc/user/user_event.dart';
-import 'package:flutter_application_1/features/auth/presentation/widgets/my_button.dart';
-import 'package:flutter_application_1/features/auth/presentation/widgets/signup_form.dart';
+import 'package:flutter_application_1/core/widgets/atoms/my_button.dart';
+import 'package:flutter_application_1/core/widgets/molecules/signup_form.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpScreen extends StatefulWidget {

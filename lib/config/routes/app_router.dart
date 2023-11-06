@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/auth/presentation/routes/scaffold_nav_bar.dart';
+import 'package:flutter_application_1/config/routes/scaffold_nav_bar.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_application_1/features/auth/presentation/screens/main/account_screen.dart';
@@ -12,7 +12,7 @@ import 'package:flutter_application_1/features/auth/presentation/screens/splash_
 enum RoutePath {
   root(path: '/'),
   login(path: 'login'),
-  signin(path: 'signin'),
+  signup(path: 'signup'),
   home(path: 'home'),
   account(path: 'account'),
   settings(path: 'settings');
@@ -34,8 +34,8 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               name: RoutePath.login.name,
               builder: (context, state) => const LoginScreen()),
           GoRoute(
-              path: RoutePath.signin.path,
-              name: RoutePath.signin.name,
+              path: RoutePath.signup.path,
+              name: RoutePath.signup.name,
               builder: (context, state) => const SignUpScreen()),
           StatefulShellRoute.indexedStack(
               builder: (context, state, navigationShell) =>
